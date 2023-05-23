@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Calculator View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="CalculatorViewController" customModule="Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="35" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eqY-Ux-lWV">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="310"/>
+                                <color key="backgroundColor" red="0.41960784313725491" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="400" id="eJy-of-l2p"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="72"/>
+                                <color key="textColor" red="1" green="0.18431372549019609" blue="0.5725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="eJy-of-l2p"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="eJy-of-l2p"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="mpl-FA-Ie5">
+                                <rect key="frame" x="0.0" y="310" width="390" height="500"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="nUA-ET-zn1">
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="93.666666666666671"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="SCr-ql-aBK" customClass="CustomKeypadButton" customModule="Calculator" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="91.666666666666671" height="93.666666666666671"/>
+                                                <color key="backgroundColor" red="1" green="0.1857388616" blue="0.57339501380000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <rect key="contentStretch" x="0.0" y="0.0" width="0.55000000000000004" height="0.55000000000000004"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <state key="normal" image="Reset"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="corner">
+                                                        <real key="value" value="0.0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="clearAll:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9LT-bL-sbv"/>
+                                                    <action selector="operationAnimation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GOZ-LE-dUS"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tya-jd-6IO" customClass="CustomKeypadButton" customModule="Calculator" customModuleProvider="target">
+                                                <rect key="frame" x="99.666666666666686" y="0.0" width="91.333333333333314" height="93.666666666666671"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                                <state key="normal" title="H">
+                                                    <color key="titleColor" red="1" green="0.1857388616" blue="0.57339501380000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="operationAnimation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NdT-0L-Nib"/>
+                                                    <segue destination="crl-Ja-U6F" kind="show" identifier="showHistory" id="KgC-4p-Auu">
+                                                        <segue key="commit" inheritsFrom="parent" id="cBq-cg-ffR"/>
+                                                        <segue key="preview" inheritsFrom="commit" id="MeC-By-pEc"/>
+                                                    </segue>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pxm-Uu-BSd" customClass="CustomKeypadButton" customModule="Calculator" customModuleProvider="target">
+                                                <rect key="frame" x="199" y="0.0" width="91.666666666666686" height="93.666666666666671"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                                <state key="normal" title="%">
+                                                    <color key="titleColor" red="1" green="0.1857388616" blue="0.57339501380000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="operation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XRL-s3-88E"/>
+                                                    <action selector="operationAnimation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ecp-SG-CqT"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OR8-ug-xav" customClass="CustomKeypadButton" customModule="Calculator" customModuleProvider="target">
+                                                <rect key="frame" x="298.66666666666669" y="0.0" width="91.333333333333314" height="93.666666666666671"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                                <state key="normal" title="×">
+                                                    <color key="titleColor" red="1" green="0.1857388616" blue="0.57339501380000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="operation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cbC-Pe-bLe"/>
+                                                    <action selector="operationAnimation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="phJ-AI-gSA"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="0xO-ro-7IW">
+                                        <rect key="frame" x="0.0" y="101.66666666666669" width="390" height="93.666666666666686"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aU2-m7-Wac" customClass="CustomKeypadButton" customModule="Calculator" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="91.666666666666671" height="93.666666666666671"/>
+                                                <color key="backgroundColor" red="0.21936468910000001" green="0.21936468910000001" blue="0.21936468910000001" alpha="0.74916975174216027" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                                <state key="normal" title="7">
+                                                    <color key="titleColor" red="0.49803921569999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="corner">
+                                                        <real key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="digit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="A57-t0-y80"/>
+                                                    <action selector="keypadAnimation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EEe-ta-ngP"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GC3-wD-KPW" customClass="CustomKeypadButton" customModule="Calculator" customModuleProvider="target">
+                                                <rect key="frame" x="99.666666666666686" y="0.0" width="91.333333333333314" height="93.666666666666671"/>
+                                                <color key="backgroundColor" red="0.21936468910000001" green="0.21936468910000001" blue="0.21936468910000001" alpha="0.74916975174216027" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                                <state key="normal" title="8">
+                                                    <color key="titleColor" red="0.49803921569999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="corner">
+                                                        <real key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="digit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Orq-5b-bS2"/>
+                                                    <action selector="keypadAnimation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rBI-Xh-rup"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j22-WW-K3L" customClass="CustomKeypadButton" customModule="Calculator" customModuleProvider="target">
+                                                <rect key="frame" x="199" y="0.0" width="91.666666666666686" height="93.666666666666671"/>
+                                                <color key="backgroundColor" red="0.21936468910000001" green="0.21936468910000001" blue="0.21936468910000001" alpha="0.74916975174216027" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                                <state key="normal" title="9">
+                                                    <color key="titleColor" red="0.49803921569999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="corner">
+                                                        <real key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="digit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Pd7-CP-ilP"/>
+                                                    <action selector="keypadAnimation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="stQ-XF-6Pv"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xsH-Rf-IdR" customClass="CustomKeypadButton" customModule="Calculator" customModuleProvider="target">
+                                                <rect key="frame" x="298.66666666666669" y="0.0" width="91.333333333333314" height="93.666666666666671"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                                <state key="normal" title="÷">
+                                                    <color key="titleColor" red="1" green="0.1857388616" blue="0.57339501380000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="operation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yvL-d6-Otp"/>
+                                                    <action selector="operationAnimation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8cL-RW-dM3"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="OMX-dU-CYx">
+                                        <rect key="frame" x="0.0" y="203.33333333333337" width="390" height="93.333333333333314"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Co9-M9-2LU" customClass="CustomKeypadButton" customModule="Calculator" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="91.666666666666671" height="93.333333333333329"/>
+                                                <color key="backgroundColor" red="0.21936468910000001" green="0.21936468910000001" blue="0.21936468910000001" alpha="0.74916975174216027" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                                <state key="normal" title="4">
+                                                    <color key="titleColor" red="0.49803921569999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="corner">
+                                                        <real key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="digit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bvG-xC-udZ"/>
+                                                    <action selector="keypadAnimation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tcD-Wg-WGB"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xg5-km-tpR" customClass="CustomKeypadButton" customModule="Calculator" customModuleProvider="target">
+                                                <rect key="frame" x="99.666666666666686" y="0.0" width="91.333333333333314" height="93.333333333333329"/>
+                                                <color key="backgroundColor" red="0.21936468910000001" green="0.21936468910000001" blue="0.21936468910000001" alpha="0.74916975174216027" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                                <state key="normal" title="5">
+                                                    <color key="titleColor" red="0.49803921569999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="corner">
+                                                        <real key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="digit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9wF-Og-Ruw"/>
+                                                    <action selector="keypadAnimation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mrq-Lb-omc"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bqw-NJ-pMg" customClass="CustomKeypadButton" customModule="Calculator" customModuleProvider="target">
+                                                <rect key="frame" x="199" y="0.0" width="91.666666666666686" height="93.333333333333329"/>
+                                                <color key="backgroundColor" red="0.21936468910000001" green="0.21936468910000001" blue="0.21936468910000001" alpha="0.76328397212543553" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                                <state key="normal" title="6">
+                                                    <color key="titleColor" red="0.49803921569999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="corner">
+                                                        <real key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="digit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zc5-dv-ddx"/>
+                                                    <action selector="keypadAnimation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="w7U-79-9Mu"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TeB-TF-uKV" customClass="CustomKeypadButton" customModule="Calculator" customModuleProvider="target">
+                                                <rect key="frame" x="298.66666666666669" y="0.0" width="91.333333333333314" height="93.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                                <state key="normal" title="−">
+                                                    <color key="titleColor" red="1" green="0.1857388616" blue="0.57339501380000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="operation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Sj-K7-c56"/>
+                                                    <action selector="operationAnimation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="p9m-fN-OJN"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="JGQ-xh-1mY">
+                                        <rect key="frame" x="0.0" y="304.66666666666663" width="390" height="93.666666666666686"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVS-L0-Da7" customClass="CustomKeypadButton" customModule="Calculator" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="91.666666666666671" height="93.666666666666671"/>
+                                                <color key="backgroundColor" red="0.21936468910000001" green="0.21936468910000001" blue="0.21936468910000001" alpha="0.74916975174216027" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                                <state key="normal" title="1">
+                                                    <color key="titleColor" red="0.49803921569999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="corner">
+                                                        <real key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="digit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eEe-IY-c6K"/>
+                                                    <action selector="keypadAnimation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dOW-OX-PDh"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7i5-Go-gpL" customClass="CustomKeypadButton" customModule="Calculator" customModuleProvider="target">
+                                                <rect key="frame" x="99.666666666666686" y="0.0" width="91.333333333333314" height="93.666666666666671"/>
+                                                <color key="backgroundColor" red="0.21936468910000001" green="0.21936468910000001" blue="0.21936468910000001" alpha="0.74916975174216027" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                                <state key="normal" title="2">
+                                                    <color key="titleColor" red="0.49803921569999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="corner">
+                                                        <real key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="digit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YPe-7j-QV0"/>
+                                                    <action selector="keypadAnimation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1px-TO-5ua"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WR9-AX-HjI" customClass="CustomKeypadButton" customModule="Calculator" customModuleProvider="target">
+                                                <rect key="frame" x="199" y="0.0" width="91.666666666666686" height="93.666666666666671"/>
+                                                <color key="backgroundColor" red="0.21936468910000001" green="0.21936468910000001" blue="0.21936468910000001" alpha="0.74916975174216027" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                                <state key="normal" title="3">
+                                                    <color key="titleColor" red="0.49803921569999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="corner">
+                                                        <real key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="digit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tZ2-8v-2k3"/>
+                                                    <action selector="keypadAnimation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cLY-dt-q3r"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Op-uS-7Zb" customClass="CustomKeypadButton" customModule="Calculator" customModuleProvider="target">
+                                                <rect key="frame" x="298.66666666666669" y="0.0" width="91.333333333333314" height="93.666666666666671"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                                <state key="normal" title="+">
+                                                    <color key="titleColor" red="1" green="0.1857388616" blue="0.57339501380000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="operation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="H2r-xj-LZn"/>
+                                                    <action selector="operationAnimation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hu6-x1-XSA"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="IBf-b3-7QF">
+                                        <rect key="frame" x="0.0" y="406.33333333333337" width="390" height="93.666666666666686"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X2X-z7-i7x" customClass="CustomKeypadButton" customModule="Calculator" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="91.666666666666671" height="93.666666666666671"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                                <state key="normal" title=".">
+                                                    <color key="titleColor" red="1" green="0.1857388616" blue="0.57339501380000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="digit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sn7-r7-WW3"/>
+                                                    <action selector="operationAnimation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JA9-zW-A40"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7i0-tR-hdL" customClass="CustomKeypadButton" customModule="Calculator" customModuleProvider="target">
+                                                <rect key="frame" x="99.666666666666686" y="0.0" width="91.333333333333314" height="93.666666666666671"/>
+                                                <color key="backgroundColor" red="0.21936468910000001" green="0.21936468910000001" blue="0.21936468910000001" alpha="0.74916975174216027" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                                <state key="normal" title="0">
+                                                    <color key="titleColor" red="0.49803921569999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="corner">
+                                                        <real key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="digit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NEU-hk-Edq"/>
+                                                    <action selector="keypadAnimation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="f2M-r5-Zvr"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VYV-fH-Qim" customClass="CustomKeypadButton" customModule="Calculator" customModuleProvider="target">
+                                                <rect key="frame" x="199" y="0.0" width="91.666666666666686" height="93.666666666666671"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                                <state key="normal" title="√">
+                                                    <color key="titleColor" red="1" green="0.1857388616" blue="0.57339501380000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="operation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oWr-aX-45W"/>
+                                                    <action selector="operationAnimation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e7s-4E-wW8"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w2J-HL-Wja" customClass="CustomKeypadButton" customModule="Calculator" customModuleProvider="target">
+                                                <rect key="frame" x="298.66666666666669" y="0.0" width="91.333333333333314" height="93.666666666666671"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                                <state key="normal" title="=">
+                                                    <color key="titleColor" red="1" green="0.1857388616" blue="0.57339501380000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="operation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RSg-LT-r5F"/>
+                                                    <action selector="operationAnimation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bip-7e-Moh"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="265" id="Kcn-IF-21w"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="650" id="ZZ5-iD-9sF"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" priority="750" constant="500" id="oYI-6a-RjU"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Kcn-IF-21w"/>
+                                        <exclude reference="ZZ5-iD-9sF"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="Kcn-IF-21w"/>
+                                        <exclude reference="oYI-6a-RjU"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="ZZ5-iD-9sF"/>
+                                        <exclude reference="oYI-6a-RjU"/>
+                                    </mask>
+                                </variation>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="eqY-Ux-lWV" firstAttribute="trailing" secondItem="mpl-FA-Ie5" secondAttribute="trailing" id="02y-gR-hVD"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mpl-FA-Ie5" secondAttribute="trailing" id="67n-Km-nZH"/>
+                            <constraint firstItem="mpl-FA-Ie5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="JtK-WF-YEC"/>
+                            <constraint firstItem="eqY-Ux-lWV" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Leh-PL-gIa"/>
+                            <constraint firstItem="eqY-Ux-lWV" firstAttribute="leading" secondItem="mpl-FA-Ie5" secondAttribute="leading" id="f32-7L-vZV"/>
+                            <constraint firstItem="mpl-FA-Ie5" firstAttribute="top" secondItem="eqY-Ux-lWV" secondAttribute="bottom" id="ilZ-wW-XJS"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="mpl-FA-Ie5" secondAttribute="bottom" id="yBU-Lh-xbt"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="calculatorDisplay" destination="eqY-Ux-lWV" id="x2W-5n-XLI"/>
+                        <outletCollection property="keypad" destination="aU2-m7-Wac" collectionClass="NSMutableArray" id="3jt-yG-F4b"/>
+                        <outletCollection property="keypad" destination="GC3-wD-KPW" collectionClass="NSMutableArray" id="cem-0t-CZ6"/>
+                        <outletCollection property="keypad" destination="j22-WW-K3L" collectionClass="NSMutableArray" id="TeW-LV-fFf"/>
+                        <outletCollection property="keypad" destination="Co9-M9-2LU" collectionClass="NSMutableArray" id="1ED-1o-XEJ"/>
+                        <outletCollection property="keypad" destination="xg5-km-tpR" collectionClass="NSMutableArray" id="Jgw-E3-mBD"/>
+                        <outletCollection property="keypad" destination="Bqw-NJ-pMg" collectionClass="NSMutableArray" id="PQG-oR-zQG"/>
+                        <outletCollection property="keypad" destination="pVS-L0-Da7" collectionClass="NSMutableArray" id="cii-jn-8Ii"/>
+                        <outletCollection property="keypad" destination="7i5-Go-gpL" collectionClass="NSMutableArray" id="T3I-se-777"/>
+                        <outletCollection property="keypad" destination="WR9-AX-HjI" collectionClass="NSMutableArray" id="74b-s4-Y8j"/>
+                        <outletCollection property="keypad" destination="7i0-tR-hdL" collectionClass="NSMutableArray" id="8ZH-tA-oSe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3266" y="-185"/>
+        </scene>
+        <!--History View Controller-->
+        <scene sceneID="keQ-Er-8A7">
+            <objects>
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="crl-Ja-U6F" customClass="HistoryViewController" customModule="Calculator" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="clE-A5-8wG">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="834"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HNR-Ei-38F">
+                                <rect key="frame" x="16" y="0.0" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="4Y7-cC-q40"/>
+                                    <constraint firstAttribute="height" constant="50" id="jeT-Vy-PGQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <state key="normal" title="⬅︎">
+                                    <color key="titleColor" red="1" green="0.1857388616" blue="0.57339501380000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBack:" destination="crl-Ja-U6F" eventType="touchUpInside" id="Xfz-ch-9xo"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Label" lineBreakMode="headTruncation" numberOfLines="22" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="URu-D3-fTR">
+                                <rect key="frame" x="16" y="58" width="358" height="142"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <color key="textColor" red="0.49803921569999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="4iG-cj-skp"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="HNR-Ei-38F" firstAttribute="top" secondItem="4iG-cj-skp" secondAttribute="top" id="4GI-lw-6em"/>
+                            <constraint firstItem="4iG-cj-skp" firstAttribute="trailing" secondItem="URu-D3-fTR" secondAttribute="trailing" constant="16" id="FKW-OM-Iy5"/>
+                            <constraint firstItem="4iG-cj-skp" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="URu-D3-fTR" secondAttribute="bottom" constant="634" id="Fyp-nl-dyF"/>
+                            <constraint firstItem="HNR-Ei-38F" firstAttribute="leading" secondItem="4iG-cj-skp" secondAttribute="leading" constant="16" id="RmC-0J-GL7"/>
+                            <constraint firstItem="URu-D3-fTR" firstAttribute="top" secondItem="HNR-Ei-38F" secondAttribute="bottom" constant="8" id="ZQw-MJ-ULV"/>
+                            <constraint firstItem="URu-D3-fTR" firstAttribute="leading" secondItem="4iG-cj-skp" secondAttribute="leading" constant="16" id="mdU-74-o6g"/>
+                            <constraint firstItem="4iG-cj-skp" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="HNR-Ei-38F" secondAttribute="trailing" constant="309" id="vbc-eW-oi8"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="TKy-zF-gQx"/>
+                    <connections>
+                        <outlet property="historyListLabel" destination="URu-D3-fTR" id="e6v-Ap-3PC"/>
+                        <segue destination="a6g-cy-Cd6" kind="unwind" identifier="unwindBackToVC1" unwindAction="unwindBackToFirstVCWithUnwindSegue:" id="WdM-O7-0p7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bHM-ZK-dux" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="a6g-cy-Cd6" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-2566" y="-185"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="KgC-4p-Auu"/>
+    </inferredMetricsTieBreakers>
+    <resources>
+        <image name="Reset" width="45" height="45"/>
+    </resources>
+</document>
